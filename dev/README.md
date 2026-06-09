@@ -15,3 +15,16 @@ refresh. The WordPress install lives outside the repo (`~/wp`) and is **not** co
 - `dev/scaffold.php` — activates the theme and creates Home / Pricing / Blog pages.
 
 Override defaults with env vars: `PORT`, `WP_DIR`, `ADMIN_USER`, `ADMIN_PASS`.
+
+## Screenshots (for web sessions)
+
+Capture any page (full-page by default; `--viewport` for above-the-fold):
+
+```bash
+node dev/shot.js /            # home
+node dev/shot.js /pricing/    # pricing
+node dev/shot.js /blog/ /tmp/blog.png --viewport
+```
+
+First run auto-downloads `chrome-headless-shell` to `/tmp` (wordpress.org &
+Playwright CDN are firewalled here; Google's chrome-for-testing bucket works).
