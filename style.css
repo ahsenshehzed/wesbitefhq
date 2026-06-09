@@ -1,0 +1,28 @@
+/*
+Theme Name:  FleetHQ
+Theme URI:   https://fleethq.com
+Author:      FleetHQ
+Author URI:  https://fleethq.com
+Description: Fleet management SaaS theme — Elementor-compatible with structured SEO. Includes Elementor Canvas & Full Width templates, Elementor Pro header/footer location support, and JSON-LD schemas (Organization, SoftwareApplication, BlogPosting, BreadcrumbList, FAQPage).
+Version:     2.0.3
+License:     GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: fleethq
+Tags:        full-width-template, custom-menu, custom-logo, theme-options, featured-images, blog, portfolio, e-commerce, right-sidebar, left-sidebar, one-column, two-columns, fluid-layout, responsive-layout, accessibility-ready, custom-background, custom-colors, custom-header, editor-style, featured-image-header, footer-widgets, sticky-post, threaded-comments, translation-ready
+*/
+
+/* ── Elementor: reset default content widths ─────────────────── */
+.elementor-section.elementor-section-boxed > .elementor-container {
+	max-width: 1280px;
+}
+.elementor-widget-wrap {
+	padding: 0;
+}
+/* Ensure Elementor sections span full width by default */
+body.elementor-page .site-main,
+body.elementor-page #primary {
+	width: 100%;
+	max-width: 100%;
+	padding: 0;
+	margin: 0;
+}

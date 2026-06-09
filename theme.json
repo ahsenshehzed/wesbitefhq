@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 2,
+  "settings": {
+    "layout": {
+      "contentSize": "100%",
+      "wideSize": "100%"
+    },
+    "useRootPaddingAwareAlignments": false,
+    "spacing": {
+      "blockGap": null,
+      "padding": false,
+      "margin": false
+    }
+  },
+  "styles": {
+    "spacing": {
+      "blockGap": "0",
+      "padding": {
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0"
+      }
+    }
+  }
+}
