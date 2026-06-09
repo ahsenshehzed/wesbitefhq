@@ -38,26 +38,37 @@ $card_img = get_template_directory_uri() . '/assets/images/fm-vehicle-card.png';
     </div>
 
     <div class="fm-scale-grid wrap">
-      <div class="fm-features">
-        <div class="fm-feature">
+      <div class="fm-features" role="tablist" aria-label="<?php esc_attr_e( 'Fleet management capabilities', 'fleethq' ); ?>">
+        <button class="fm-feature active" type="button" role="tab" aria-selected="true" data-shot="0">
           <h3><?php esc_html_e( 'Centralized Operations Command', 'fleethq' ); ?></h3>
           <p><?php esc_html_e( 'Keep every vehicle booked and every turnaround tight. FleetHQ automates scheduling, availability, and calendar management so no car sits idle and no opportunity is missed.', 'fleethq' ); ?></p>
-        </div>
-        <div class="fm-feature">
+        </button>
+        <button class="fm-feature" type="button" role="tab" aria-selected="false" data-shot="1">
           <h3><?php esc_html_e( 'Preserve Asset Health', 'fleethq' ); ?></h3>
           <p><?php esc_html_e( 'Mark any car unavailable for specific dates in your dashboard to preserve asset health and handle maintenance.', 'fleethq' ); ?></p>
-        </div>
-        <div class="fm-feature">
+        </button>
+        <button class="fm-feature" type="button" role="tab" aria-selected="false" data-shot="2">
           <h3><?php esc_html_e( 'Dynamic Inventory Growth', 'fleethq' ); ?></h3>
           <p><?php esc_html_e( 'Utilize our car rental fleet management software to centralize operations and securely grow your vehicle inventory.', 'fleethq' ); ?></p>
-        </div>
+        </button>
       </div>
 
       <div class="fm-visual">
-        <div class="fm-visual-panel">
-          <img class="fm-visual-cal" src="<?php echo esc_url( $cal_img ); ?>" alt="<?php esc_attr_e( 'Next 14 days availability calendar', 'fleethq' ); ?>" loading="lazy" />
+        <!-- Shot 0: command center — car tile behind, calendar smaller in front -->
+        <div class="fm-shot active" data-shot="0">
+          <div class="fm-composite">
+            <img class="fm-card" src="<?php echo esc_url( $card_img ); ?>" alt="<?php esc_attr_e( 'Chevrolet Equinox vehicle card', 'fleethq' ); ?>" loading="lazy" />
+            <img class="fm-cal" src="<?php echo esc_url( $cal_img ); ?>" alt="<?php esc_attr_e( 'Next 14 days availability calendar', 'fleethq' ); ?>" loading="lazy" />
+          </div>
         </div>
-        <img class="fm-visual-card" src="<?php echo esc_url( $card_img ); ?>" alt="<?php esc_attr_e( 'Chevrolet Equinox vehicle card', 'fleethq' ); ?>" loading="lazy" />
+        <!-- Shot 1: asset health — single vehicle -->
+        <div class="fm-shot fm-shot-single" data-shot="1">
+          <img src="<?php echo esc_url( $card_img ); ?>" alt="<?php esc_attr_e( 'Vehicle availability card', 'fleethq' ); ?>" loading="lazy" />
+        </div>
+        <!-- Shot 2: inventory growth — full fleet dashboard -->
+        <div class="fm-shot fm-shot-single fm-shot-wide" data-shot="2">
+          <img src="<?php echo esc_url( $dash ); ?>" alt="<?php esc_attr_e( 'Fleet management dashboard', 'fleethq' ); ?>" loading="lazy" />
+        </div>
       </div>
     </div>
   </section>
@@ -66,6 +77,27 @@ $card_img = get_template_directory_uri() . '/assets/images/fm-vehicle-card.png';
   <?php get_template_part( 'template-parts/sections/insights' ); ?>
 
 </div><!-- .fm-page -->
+
+<script>
+(function(){
+  var feats = document.querySelectorAll('.fm-feature');
+  var shots = document.querySelectorAll('.fm-shot');
+  if (!feats.length) return;
+  function activate(i){
+    feats.forEach(function(f){
+      var on = f.dataset.shot === String(i);
+      f.classList.toggle('active', on);
+      f.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    shots.forEach(function(s){ s.classList.toggle('active', s.dataset.shot === String(i)); });
+  }
+  feats.forEach(function(f){
+    f.addEventListener('click', function(){ activate(f.dataset.shot); });
+    f.addEventListener('mouseenter', function(){ activate(f.dataset.shot); });
+  });
+})();
+</script>
+
 
 <?php
 get_template_part( 'template-parts/sections/voices' ); // testimonials + CTA + footer
