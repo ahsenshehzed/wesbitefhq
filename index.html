@@ -144,6 +144,39 @@ html, body { width: 100% !important; max-width: 100% !important; margin: 0 !impo
   </div>
 </section>
 
+<section class="calc-hero wrap" aria-labelledby="calc-headline">
+  <p class="calc-eyebrow">Still renting only on Turo?</p>
+  <h1 id="calc-headline" class="display calc-title">Calculate how much you can save with FleetHQ</h1>
+  <p class="lede calc-sub">You might be giving away hundreds each month without realizing it.</p>
+  <p class="lede calc-sub">Use our calculator to compare what you earn on Turo vs. what you could earn with private rentals, using the same car, same rates, same effort.</p>
+  <form class="hero-cta" action="https://fms.fleethq.io/auth/register" method="get" target="_blank" role="search" aria-label="Start free trial">
+    <input class="input" type="email" name="email" placeholder="Enter your company email" aria-label="Company email" />
+    <button class="btn btn-dark" type="submit">Start free trial</button>
+  </form>
+</section>
+<section class="calc-widget wrap" aria-label="Savings calculator">
+  <div class="calc-grid">
+    <div class="calc-controls">
+      <div class="calc-field">
+        <label class="calc-label" for="calc-rate">How much is your daily rental rate?</label>
+        <div class="calc-value"><span id="calc-rate-val">$72</span><span class="calc-unit">/day</span></div>
+        <input type="range" class="calc-slider" id="calc-rate" min="20" max="300" step="1" value="72" aria-label="Daily rental rate in dollars" />
+      </div>
+      <div class="calc-field">
+        <label class="calc-label" for="calc-util">How much is your utilization?</label>
+        <div class="calc-value"><span id="calc-util-val">57</span><span class="calc-unit">%</span></div>
+        <input type="range" class="calc-slider" id="calc-util" min="0" max="100" step="1" value="57" aria-label="Fleet utilization percentage" />
+      </div>
+    </div>
+    <div class="calc-result">
+      <img class="calc-result-spark" src="/wesbitefhq/assets/images/doodle-cta.png" alt="" aria-hidden="true" />
+      <h2 class="calc-result-title">WE CAN HELP<br>YOU SAVE!</h2>
+      <p class="calc-result-note">Assuming 21 days of utilization on Turo.</p>
+      <div class="calc-result-amount" id="calc-amount" aria-live="polite">$5,040</div>
+      <p class="calc-result-period">Annually</p>
+    </div>
+  </div>
+</section>
 <section class="results" aria-labelledby="results-headline">
   <h2 id="results-headline" class="h2">Real results <em>from</em> real fleet <em>operators</em></h2>
   <div class="bento">
@@ -159,6 +192,25 @@ html, body { width: 100% !important; max-width: 100% !important; margin: 0 !impo
   </div>
 </section>
 
+<section class="pricing-section dark" data-nav-dark aria-labelledby="lp-pricing-headline">
+  <div class="pricing-hero">
+    <div class="pricing-hero-inner wrap">
+      <p class="pricing-eyebrow">Plans &amp; Pricing</p>
+      <h2 id="lp-pricing-headline" class="h2" style="color:#fff;max-width:640px;margin:0 auto">Simple pricing for every fleet size</h2>
+      <p class="lede" style="margin-top:16px;color:#dcdcdc;text-align:center">Start free. Scale as you grow. Keep every dollar you earn.</p>
+      <div class="price-toggle" role="group" aria-label="Billing period">
+        <button class="price-toggle-btn active" data-period="annual">Annual <span class="price-save">Save 20%</span></button>
+        <button class="price-toggle-btn" data-period="monthly">Monthly</button>
+      </div>
+    </div>
+  </div>
+  <div class="pricing-cards-wrap">
+    <div class="pricing-cards wrap"><div class="price-card"><div class="price-card-head"><div class="price-card-name">Starter</div><p class="price-card-desc">Perfect for independent operators just getting started.</p></div><div class="price-card-price"><span class="price-amount" data-annual="$149" data-monthly="$179">$149</span><span class="price-period">/mo</span></div><div class="price-vehicles">Up to 15 Cars</div><div class="price-includes">Includes:</div><ul class="price-features"><li>Mobile Optimized Branded Website</li><li>Direct Fleet Booking</li><li>Renter ID &amp; Insurance Verification</li><li>Automated E-Sign Agreements</li><li>Turo Calendar Sync</li><li>Real-Time Analytics</li></ul><a class="btn btn-light price-cta" href="https://fms.fleethq.io/auth/register">Get started</a></div><div class="price-card price-card-featured"><div class="price-card-head"><div class="price-card-name-row"><div class="price-card-name">Professional</div><span class="price-popular-pill">POPULAR</span></div><p class="price-card-desc">For growing teams managing larger fleets.</p></div><div class="price-card-price"><span class="price-amount" data-annual="$249" data-monthly="$299">$249</span><span class="price-period">/mo</span></div><div class="price-vehicles">Up to 75 Cars</div><div class="price-includes">For growing teams, includes:</div><ul class="price-features"><li>Everything in Starter</li><li>Support for larger fleets (up to 75 cars)</li><li>Renter Criminal Background Check</li><li>Priority Feature Access</li></ul><a class="btn btn-dark price-cta" href="https://fms.fleethq.io/auth/register">Get started</a></div><div class="price-card"><div class="price-card-head"><div class="price-card-name">Enterprise</div><p class="price-card-desc">For large organizations running fleets at scale.</p></div><div class="price-card-price"><span class="price-amount price-custom">Custom</span><span class="price-period">/mo</span></div><div class="price-vehicles">75+ Cars</div><div class="price-includes">For large organizations, includes:</div><ul class="price-features"><li>Everything in Professional</li><li>Support for fleets more than 75</li><li>Flexible Invoicing</li><li>Priority support</li></ul><a class="btn btn-light price-cta" href="https://calendly.com/z-fleethq/30min">Book a demo</a></div></div>
+    <div class="wrap pricing-section-foot">
+      <a class="btn btn-light" href="/wesbitefhq/pricing/">View full pricing &amp; features →</a>
+    </div>
+  </div>
+</section>
 <section class="insights" aria-labelledby="insights-headline">
   <div class="insights-head">
     <h2 id="insights-headline">Insights to grow your rental business</h2>
@@ -202,5 +254,24 @@ html, body { width: 100% !important; max-width: 100% !important; margin: 0 !impo
 var fleethqData = {"dashboardImg":"/wesbitefhq/assets/images/dashboard.png","fleetMgmtImg":"/wesbitefhq/assets/images/Fleet Management.png","calendarImg":"/wesbitefhq/assets/images/Calendar.png","integrationsImg":"/wesbitefhq/assets/images/Integrations.png","rentalAgreementImg":"/wesbitefhq/assets/images/Rental Agreement.png","freeWebsiteImg":"/wesbitefhq/assets/images/Desktop - 105.png","taxiImg":"/wesbitefhq/assets/images/illo-taxi.png","tabDailyWageOn":"/wesbitefhq/assets/images/illo-taxi.png","tabDailyWageOff":"/wesbitefhq/assets/images/tab-dailywage-off.png","tabLuxuryOn":"/wesbitefhq/assets/images/tab-luxury.png","tabLuxuryOff":"/wesbitefhq/assets/images/tab-luxury-off.png","tabFoundersOn":"/wesbitefhq/assets/images/tab-founders.png","tabFoundersOff":"/wesbitefhq/assets/images/tab-founders-off.png","tabHourlyOn":"/wesbitefhq/assets/images/tab-hourly.png","tabHourlyOff":"/wesbitefhq/assets/images/tab-hourly-off.png","tabGrowthOn":"/wesbitefhq/assets/images/tab-growth.png","tabGrowthOff":"/wesbitefhq/assets/images/tab-growth-off.png"};
 </script>
 <script id="fleethq-main-js" src="/wesbitefhq/assets/js/main.js"></script>
+<script>
+(function(){
+  var widget = document.querySelector('.calc-widget'); if (!widget) return;
+  var rate=document.getElementById('calc-rate'),util=document.getElementById('calc-util'),
+      rateVal=document.getElementById('calc-rate-val'),utilVal=document.getElementById('calc-util-val'),
+      amount=document.getElementById('calc-amount'),TURO_TAKE=0.3365;
+  function fill(el){var p=(el.value-el.min)/(el.max-el.min)*100;el.style.setProperty('--pct',p+'%');}
+  function recalc(){var r=+rate.value,u=+util.value;rateVal.textContent='$'+r;utilVal.textContent=u;
+    var a=Math.round(r*(u/100)*365*TURO_TAKE/10)*10;amount.textContent='$'+a.toLocaleString('en-US');fill(rate);fill(util);}
+  rate.addEventListener('input',recalc);util.addEventListener('input',recalc);recalc();
+})();
+(function(){
+  var sec=document.querySelector('.pricing-section'); if(!sec) return;
+  var btns=sec.querySelectorAll('.price-toggle-btn'),amounts=sec.querySelectorAll('.price-amount[data-annual]');
+  btns.forEach(function(btn){btn.addEventListener('click',function(){
+    btns.forEach(function(b){b.classList.remove('active');});btn.classList.add('active');
+    var p=btn.dataset.period;amounts.forEach(function(el){el.textContent=el.dataset[p];});});});
+})();
+</script>
 </body>
 </html>
