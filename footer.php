@@ -44,11 +44,17 @@ elseif ( $show_footer ) :
 
         <!-- Footer menus -->
         <?php
+        $fm_url = '';
+        $fm_pg = get_pages( [ 'meta_key' => '_wp_page_template', 'meta_value' => 'page-fleet-management.php' ] );
+        if ( $fm_pg ) $fm_url = get_permalink( $fm_pg[0]->ID );
+        if ( ! $fm_url ) { $fmp = get_page_by_path( 'fleet-management' ); if ( $fmp ) $fm_url = get_permalink( $fmp->ID ); }
+        if ( ! $fm_url ) $fm_url = home_url( '/fleet-management/' );
+
         $footer_fallbacks = [
           'footer_product' => [
             'title' => __( 'Product', 'fleethq' ),
             'links' => [
-              __( 'Fleet Management', 'fleethq' )    => '#',
+              __( 'Fleet Management', 'fleethq' )    => $fm_url,
               __( 'Booking Management', 'fleethq' )  => '#',
               __( 'Turo Sync', 'fleethq' )           => '#',
               __( 'Analytics', 'fleethq' )           => '#',

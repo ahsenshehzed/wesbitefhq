@@ -93,11 +93,17 @@ elseif ( $show_header ) :
             if ( ! $calc_url ) { $cp = get_page_by_path( 'calculator' ); if ( $cp ) $calc_url = get_permalink( $cp->ID ); }
             if ( ! $calc_url ) $calc_url = home_url( '/calculator/' );
 
+            $fm_url = '';
+            $fm_pg = get_pages( [ 'meta_key' => '_wp_page_template', 'meta_value' => 'page-fleet-management.php' ] );
+            if ( $fm_pg ) $fm_url = get_permalink( $fm_pg[0]->ID );
+            if ( ! $fm_url ) { $fmp = get_page_by_path( 'fleet-management' ); if ( $fmp ) $fm_url = get_permalink( $fmp->ID ); }
+            if ( ! $fm_url ) $fm_url = home_url( '/fleet-management/' );
+
             echo '<ul>
               <li class="menu-item-has-children">
                 <a href="#">Product</a>
                 <ul class="sub-menu">
-                  <li><a href="#">Fleet &amp; Booking Management</a></li>
+                  <li><a href="' . esc_url( $fm_url ) . '">Fleet &amp; Booking Management</a></li>
                   <li><a href="#">Free Booking Website</a></li>
                   <li><a href="#">Rental Agreements</a></li>
                   <li><a href="#">Verification &amp; Insurance</a></li>
@@ -160,7 +166,14 @@ elseif ( $show_header ) :
   <div class="nav-mobile-grid">
     <div class="nav-mobile-col">
       <span class="nav-mobile-cat"><?php esc_html_e( 'Product', 'fleethq' ); ?></span>
-      <a href="#"><?php esc_html_e( 'Fleet & Booking Management', 'fleethq' ); ?></a>
+      <?php
+      $mob_fm = '';
+      $mob_fmpg = get_pages( [ 'meta_key' => '_wp_page_template', 'meta_value' => 'page-fleet-management.php' ] );
+      if ( $mob_fmpg ) $mob_fm = get_permalink( $mob_fmpg[0]->ID );
+      if ( ! $mob_fm ) { $mfp = get_page_by_path('fleet-management'); if($mfp) $mob_fm = get_permalink($mfp->ID); }
+      if ( ! $mob_fm ) $mob_fm = home_url('/fleet-management/');
+      ?>
+      <a href="<?php echo esc_url( $mob_fm ); ?>"><?php esc_html_e( 'Fleet & Booking Management', 'fleethq' ); ?></a>
       <a href="#"><?php esc_html_e( 'Free Booking Website', 'fleethq' ); ?></a>
       <a href="#"><?php esc_html_e( 'Rental Agreements', 'fleethq' ); ?></a>
       <a href="#"><?php esc_html_e( 'Verification & Insurance', 'fleethq' ); ?></a>
