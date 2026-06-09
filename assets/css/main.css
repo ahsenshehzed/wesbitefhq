@@ -1465,13 +1465,14 @@ tbody .compare-featured-col { background: rgba(19,19,20,.03); }
   position: relative;
 }
 
-/* Controls card — extends wider; its right edge tucks under the result card */
+/* Controls card — background tucks under the result card, but the slider
+   content stops ~28px short of it (extra right padding = overlap + gap). */
 .calc-controls {
-  width: 70%;
+  width: calc(100% - 290px);
   background: #fff;
   border: 1px solid var(--border-2);
   border-radius: var(--radius);
-  padding: 40px 44px;
+  padding: 40px 118px 40px 44px;
   display: flex; flex-direction: column; justify-content: center; gap: 38px;
 }
 .calc-label {
@@ -1513,7 +1514,7 @@ tbody .compare-featured-col { background: rgba(19,19,20,.03); }
   position: absolute;
   top: 50%; right: 0;
   transform: translateY(-50%);
-  width: 40%; max-width: 400px;
+  width: 380px;
   z-index: 2;
   background: var(--dark);
   border-radius: 20px;
