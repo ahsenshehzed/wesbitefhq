@@ -87,6 +87,12 @@ elseif ( $show_header ) :
 
             $blog_url = get_permalink( get_option( 'page_for_posts' ) ) ?: home_url( '/blog/' );
 
+            $calc_url = '';
+            $calc_page = get_pages( [ 'meta_key' => '_wp_page_template', 'meta_value' => 'page-calculator.php' ] );
+            if ( $calc_page ) $calc_url = get_permalink( $calc_page[0]->ID );
+            if ( ! $calc_url ) { $cp = get_page_by_path( 'calculator' ); if ( $cp ) $calc_url = get_permalink( $cp->ID ); }
+            if ( ! $calc_url ) $calc_url = home_url( '/calculator/' );
+
             echo '<ul>
               <li class="menu-item-has-children">
                 <a href="#">Product</a>
@@ -112,7 +118,7 @@ elseif ( $show_header ) :
                 <ul class="sub-menu">
                   <li><a href="' . esc_url( $blog_url ) . '">Blog</a></li>
                   <li><a href="#">Case Studies</a></li>
-                  <li><a href="#">Free Tools &amp; Templates</a></li>
+                  <li><a href="' . esc_url( $calc_url ) . '">Savings Calculator</a></li>
                 </ul>
               </li>
               <li><a href="' . esc_url( $pricing_url ) . '">Pricing</a></li>
@@ -166,6 +172,11 @@ elseif ( $show_header ) :
       if ( ! $mob_pricing ) { $pp = get_page_by_path('pricing'); if($pp) $mob_pricing = get_permalink($pp->ID); }
       if ( ! $mob_pricing ) $mob_pricing = home_url('/pricing/');
       $mob_blog = get_permalink( get_option('page_for_posts') ) ?: home_url('/blog/');
+      $mob_calc = '';
+      $mob_cp = get_pages( [ 'meta_key' => '_wp_page_template', 'meta_value' => 'page-calculator.php' ] );
+      if ( $mob_cp ) $mob_calc = get_permalink( $mob_cp[0]->ID );
+      if ( ! $mob_calc ) { $mcp = get_page_by_path('calculator'); if($mcp) $mob_calc = get_permalink($mcp->ID); }
+      if ( ! $mob_calc ) $mob_calc = home_url('/calculator/');
       ?>
       <a href="<?php echo esc_url( $mob_pricing ); ?>"><?php esc_html_e( 'Pricing', 'fleethq' ); ?></a>
     </div>
@@ -182,7 +193,7 @@ elseif ( $show_header ) :
       <span class="nav-mobile-cat"><?php esc_html_e( 'Resources', 'fleethq' ); ?></span>
       <a href="<?php echo esc_url( $mob_blog ); ?>"><?php esc_html_e( 'Blog', 'fleethq' ); ?></a>
       <a href="#"><?php esc_html_e( 'Case Studies', 'fleethq' ); ?></a>
-      <a href="#"><?php esc_html_e( 'Free Tools & Templates', 'fleethq' ); ?></a>
+      <a href="<?php echo esc_url( $mob_calc ); ?>"><?php esc_html_e( 'Savings Calculator', 'fleethq' ); ?></a>
     </div>
     <div class="nav-mobile-col">
       <span class="nav-mobile-cat"><?php esc_html_e( 'Company', 'fleethq' ); ?></span>
