@@ -83,17 +83,36 @@ html, body { width: 100% !important; max-width: 100% !important; margin: 0 !impo
     <a class="btn btn-dark" href="https://fms.fleethq.io/auth/register" target="_blank" rel="noopener">Start free trial</a>
   </div>
   <div class="fm-scale-grid wrap">
-    <div class="fm-features">
-      <div class="fm-feature"><h3>Centralized Operations Command</h3><p>Keep every vehicle booked and every turnaround tight. FleetHQ automates scheduling, availability, and calendar management so no car sits idle and no opportunity is missed.</p></div>
-      <div class="fm-feature"><h3>Preserve Asset Health</h3><p>Mark any car unavailable for specific dates in your dashboard to preserve asset health and handle maintenance.</p></div>
-      <div class="fm-feature"><h3>Dynamic Inventory Growth</h3><p>Utilize our car rental fleet management software to centralize operations and securely grow your vehicle inventory.</p></div>
+    <div class="fm-features" role="tablist" aria-label="Fleet management capabilities">
+      <button class="fm-feature active" type="button" role="tab" aria-selected="true" data-shot="0">
+        <h3>Centralized Operations Command</h3>
+        <p>Keep every vehicle booked and every turnaround tight. FleetHQ automates scheduling, availability, and calendar management so no car sits idle and no opportunity is missed.</p>
+      </button>
+      <button class="fm-feature" type="button" role="tab" aria-selected="false" data-shot="1">
+        <h3>Preserve Asset Health</h3>
+        <p>Mark any car unavailable for specific dates in your dashboard to preserve asset health and handle maintenance.</p>
+      </button>
+      <button class="fm-feature" type="button" role="tab" aria-selected="false" data-shot="2">
+        <h3>Dynamic Inventory Growth</h3>
+        <p>Utilize our car rental fleet management software to centralize operations and securely grow your vehicle inventory.</p>
+      </button>
     </div>
     <div class="fm-visual">
-      <div class="fm-visual-panel"><img class="fm-visual-cal" src="/wesbitefhq/assets/images/fm-calendar.png" alt="Next 14 days availability calendar" loading="lazy" /></div>
-      <img class="fm-visual-card" src="/wesbitefhq/assets/images/fm-vehicle-card.png" alt="Chevrolet Equinox vehicle card" loading="lazy" />
+      <div class="fm-shot active" data-shot="0">
+        <div class="fm-composite">
+          <img class="fm-card" src="/wesbitefhq/assets/images/fm-vehicle-card.png" alt="Chevrolet Equinox vehicle card" loading="lazy" />
+          <img class="fm-cal" src="/wesbitefhq/assets/images/fm-calendar.png" alt="Next 14 days availability calendar" loading="lazy" />
+        </div>
+      </div>
+      <div class="fm-shot fm-shot-single" data-shot="1">
+        <img src="/wesbitefhq/assets/images/fm-vehicle-card.png" alt="Vehicle availability card" loading="lazy" />
+      </div>
+      <div class="fm-shot fm-shot-single fm-shot-wide" data-shot="2">
+        <img src="/wesbitefhq/assets/images/Fleet%20Management.png" alt="Fleet management dashboard" loading="lazy" />
+      </div>
     </div>
   </div>
-</section>
+  </section>
 <section class="pricing-faq"><div class="wrap pricing-faq-inner"><h2 class="h2">Frequently asked questions</h2><ul class="faq-list"><li class="faq-item"><button class="faq-btn" aria-expanded="false"><span class="faq-num">1</span><span class="faq-q">Do I need a credit card to start?</span><span class="faq-icon">+</span></button><div class="faq-body"><p class="faq-a">No. Your 14-day free trial starts immediately with no credit card required. You'll only be asked for payment details when you choose to upgrade.</p></div></li><li class="faq-item"><button class="faq-btn" aria-expanded="false"><span class="faq-num">2</span><span class="faq-q">Can I change my plan later?</span><span class="faq-icon">+</span></button><div class="faq-body"><p class="faq-a">Yes. You can upgrade, downgrade, or cancel your plan at any time from your account settings. Changes take effect at the next billing cycle.</p></div></li><li class="faq-item"><button class="faq-btn" aria-expanded="false"><span class="faq-num">3</span><span class="faq-q">What happens if I go over my vehicle limit?</span><span class="faq-icon">+</span></button><div class="faq-body"><p class="faq-a">We'll notify you before you hit your limit. You can add more vehicles by upgrading to the next plan — we'll never lock you out mid-rental.</p></div></li><li class="faq-item"><button class="faq-btn" aria-expanded="false"><span class="faq-num">4</span><span class="faq-q">Is there a setup fee?</span><span class="faq-icon">+</span></button><div class="faq-body"><p class="faq-a">None. FleetHQ is designed to get you running in minutes. There are no setup fees, implementation costs, or hidden charges on any plan.</p></div></li><li class="faq-item"><button class="faq-btn" aria-expanded="false"><span class="faq-num">5</span><span class="faq-q">How does the annual discount work?</span><span class="faq-icon">+</span></button><div class="faq-body"><p class="faq-a">Choosing annual billing saves you 20% compared to paying month-to-month. The full year is billed upfront.</p></div></li><li class="faq-item"><button class="faq-btn" aria-expanded="false"><span class="faq-num">6</span><span class="faq-q">Can I get a demo before signing up?</span><span class="faq-icon">+</span></button><div class="faq-body"><p class="faq-a">Absolutely. Book a demo with our team and we'll walk you through the platform, answer your questions, and help you find the right plan.</p></div></li></ul></div></section>
 <section class="insights" aria-labelledby="insights-headline">
   <div class="insights-head">
@@ -166,6 +185,20 @@ var fleethqData = {"dashboardImg":"/wesbitefhq/assets/images/dashboard.png","fle
         el.classList.remove('open'); el.querySelector('.faq-btn').setAttribute('aria-expanded','false');});
       if(!isOpen){item.classList.add('open');btn.setAttribute('aria-expanded','true');}
     });
+  });
+})();
+</script>
+<script>
+(function(){
+  var feats=document.querySelectorAll('.fm-feature'), shots=document.querySelectorAll('.fm-shot');
+  if(!feats.length) return;
+  function activate(i){
+    feats.forEach(function(f){var on=f.dataset.shot===String(i);f.classList.toggle('active',on);f.setAttribute('aria-selected',on?'true':'false');});
+    shots.forEach(function(s){s.classList.toggle('active',s.dataset.shot===String(i));});
+  }
+  feats.forEach(function(f){
+    f.addEventListener('click',function(){activate(f.dataset.shot);});
+    f.addEventListener('mouseenter',function(){activate(f.dataset.shot);});
   });
 })();
 </script>

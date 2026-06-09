@@ -1581,35 +1581,60 @@ tbody .compare-featured-col { background: rgba(19,19,20,.03); }
 .fm-hero-figure { margin-top: 56px; }
 
 .fm-scale { padding: 110px 0 96px; }
+.fm-scale .section-head .lede { width: 600px; max-width: 90%; }
 .fm-scale .section-head .btn { margin-top: 26px; }
 .fm-scale-grid {
   display: grid; grid-template-columns: 1fr 1fr; gap: 72px;
   align-items: center; margin-top: 64px;
 }
+
+/* Interactive feature list — each swaps the visual on the right */
 .fm-features { display: flex; flex-direction: column; }
-.fm-feature { padding: 26px 0; }
+.fm-feature {
+  display: block; width: 100%; text-align: left; cursor: pointer;
+  background: none; border: none; font-family: inherit;
+  padding: 22px 0 22px 20px; border-left: 2px solid transparent;
+  transition: opacity .2s ease, border-color .2s ease;
+}
 .fm-feature + .fm-feature { border-top: 1px solid var(--border); }
-.fm-feature:first-child { padding-top: 0; }
+.fm-feature:not(.active) { opacity: .5; }
+.fm-feature:not(.active):hover { opacity: .8; }
+.fm-feature.active { border-left-color: var(--ink); }
 .fm-feature h3 {
   font-size: 20px; font-weight: 500; letter-spacing: -0.03em; color: var(--ink);
   margin-bottom: 10px;
 }
 .fm-feature p { font-size: 14px; font-weight: 300; color: var(--gray); line-height: 1.5; }
 
-.fm-visual { position: relative; padding-bottom: 70px; }
-.fm-visual-panel {
-  background: #fff; border: 1px solid var(--border-2); border-radius: 16px;
-  padding: 22px 24px; box-shadow: 0 24px 60px rgba(0,0,0,.07);
+/* Visual stage — shots crossfade as features are selected */
+.fm-visual { position: relative; min-height: 440px; }
+.fm-shot {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  opacity: 0; visibility: hidden; transition: opacity .35s ease;
 }
-.fm-visual-cal { width: 100%; height: auto; border-radius: 8px; }
-.fm-visual-card {
-  position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);
-  width: 230px; height: auto; border-radius: 16px;
-  box-shadow: 0 24px 50px rgba(0,0,0,.18);
+.fm-shot.active { opacity: 1; visibility: visible; }
+.fm-shot-single img {
+  width: 100%; max-width: 460px; height: auto; border-radius: 14px;
+  border: 1px solid var(--border-2); box-shadow: 0 24px 60px rgba(0,0,0,.10);
+}
+.fm-shot-wide img { max-width: 520px; }
+
+/* Composite: car tile behind, "Next 14 days" calendar smaller & in front below it */
+.fm-composite { position: relative; width: 300px; }
+.fm-composite .fm-card {
+  display: block; width: 300px; height: auto; border-radius: 16px;
+  box-shadow: 0 24px 50px rgba(0,0,0,.16); position: relative; z-index: 1;
+}
+.fm-composite .fm-cal {
+  position: absolute; left: 50%; bottom: -34px; transform: translateX(-50%);
+  width: 340px; height: auto; border-radius: 12px;
+  box-shadow: 0 18px 44px rgba(0,0,0,.16); z-index: 2; background: #fff;
 }
 
 @media (max-width: 860px) {
   .fm-scale { padding: 80px 0 72px; }
+  .fm-scale .section-head .lede { width: auto; }
   .fm-scale-grid { grid-template-columns: 1fr; gap: 48px; margin-top: 48px; }
-  .fm-visual { padding-bottom: 56px; }
+  .fm-visual { min-height: 380px; }
+  .fm-shot-single img, .fm-shot-wide img { max-width: 90%; }
 }
