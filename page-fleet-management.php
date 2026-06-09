@@ -14,7 +14,7 @@ $card_img = get_template_directory_uri() . '/assets/images/fm-vehicle-card.png';
   <!-- ── Hero ── -->
   <section class="fm-hero wrap" aria-labelledby="fm-headline">
     <p class="fm-eyebrow"><?php esc_html_e( 'Fleet Management', 'fleethq' ); ?></p>
-    <h1 id="fm-headline" class="display fm-title"><?php esc_html_e( 'Car Rental Fleet Management Software', 'fleethq' ); ?></h1>
+    <h1 id="fm-headline" class="display fm-title"><?php esc_html_e( 'Car Rental Fleet', 'fleethq' ); ?><br><?php esc_html_e( 'Management Software', 'fleethq' ); ?></h1>
     <p class="lede fm-sub"><?php esc_html_e( 'Manage, track, and grow your vehicle inventory with FleetHQ. The ultimate car rental fleet management system built for independent brands.', 'fleethq' ); ?></p>
 
     <form class="hero-cta" action="https://fms.fleethq.io/auth/register" method="get" target="_blank" role="search" aria-label="<?php esc_attr_e( 'Start free trial', 'fleethq' ); ?>">
