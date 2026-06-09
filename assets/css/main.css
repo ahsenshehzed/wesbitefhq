@@ -1576,7 +1576,7 @@ tbody .compare-featured-col { background: rgba(19,19,20,.03); }
   color: var(--gray-2); margin: 0 0 20px;
 }
 .fm-title { max-width: 760px; margin: 0 auto; }
-.fm-sub { max-width: 660px; margin: 16px auto 0; text-align: center; }
+.fm-sub { max-width: 488px; margin: 16px auto 0; text-align: center; }
 .fm-hero .hero-cta { margin-top: 28px; }
 .fm-hero-figure { margin-top: 52px; }
 
